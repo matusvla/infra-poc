@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: infra-poc
+spec:
+  template:
+    metadata:
+      name: infra-poc-pod
+    spec:
+      containers:
+        - name: infra-poc
+          image: poc
+          imagePullPolicy: Never # I want to load it from a locally built image
+      restartPolicy: Never
